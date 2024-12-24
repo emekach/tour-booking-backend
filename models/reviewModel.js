@@ -53,7 +53,7 @@ reviewSchema.pre(/^find/, function (next) {
 
 // this us a static method the other is instance method
 reviewSchema.statics.calcAverageRatings = async function (tourId) {
-  //console.log(`my tour id iss ${tourId}`);
+  ////console.log(`my tour id iss ${tourId}`);
   const stats = await this.aggregate([
     {
       $match: { tour: tourId },
@@ -67,7 +67,7 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
     },
   ]);
 
-  console.log(stats);
+  //console.log(stats);
 
   if (stats.length > 0) {
     await Tour.findByIdAndUpdate(tourId, {
@@ -98,7 +98,7 @@ reviewSchema.post(/^findOneAnd/, async function (doc) {
 // reviewSchema.pre(/^findOneAnd/, async function (next) {
 //   this.r = await this.clone().findOne();
 
-//   //console.log(this.r);
+//   ////console.log(this.r);
 //   next();
 // });
 

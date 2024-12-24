@@ -70,10 +70,10 @@ exports.getAllUsers = factory.getAll(User);
 // });
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.file);
+  //console.log(req.file);
   // const datas = Object.fromEntries(Object.entries(req.body));
 
-  console.log(req.body);
+  //console.log(req.body);
 
   // 1) create an error if user post password data
   if (req.body.password || req.body.passwordConfirm) {

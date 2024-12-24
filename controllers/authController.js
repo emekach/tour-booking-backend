@@ -50,7 +50,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
+  //console.log(url);
 
   try {
     await new Email(newUser, url).sendWelcome();
@@ -90,7 +90,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   ) {
     token = req.headers.authorization.split(' ')[1];
   }
-  //console.log(token);
+  ////console.log(token);
 
   if (!token) {
     return next(
@@ -101,7 +101,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   //2) Validate the token
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  //console.log(decoded);
+  ////console.log(decoded);
 
   // 3) check if user still exists
   const currentUser = await User.findById(decoded.id);
@@ -219,11 +219,11 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 exports.updatePassword = catchAsync(async (req, res, next) => {
   // 1) get the user from collection
 
-  //console.log(req.user._id);
+  ////console.log(req.user._id);
   const user = await User.findById(req.user.id).select('+password');
-  console.log;
+  //console.log;
 
-  //console.log(user);
+  ////console.log(user);
   //2) check if the posted password is correct
 
   if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
