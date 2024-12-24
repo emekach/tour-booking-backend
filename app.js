@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -26,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(helmet());
 
 // development logging
-console.log(process.env.NODE_ENV);
+//console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
@@ -68,10 +69,11 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 //app.use(express.static(`${__dirname}/public`));
 
+app.use(compression());
 // Test middleweare
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  //console.log(req.headers);
+  ////console.log(req.headers);
 
   next();
 });

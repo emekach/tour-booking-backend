@@ -53,7 +53,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     mode: 'payment',
   });
   // 3) create session as response
-  console.log(session);
+  //console.log(session);
 
   res.status(200).json({
     status: 'success',

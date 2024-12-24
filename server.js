@@ -17,10 +17,10 @@ const DB = process.env.DATABASE.replace(
 
 mongoose.connect(DB, {}).then((con) => console.log('DB connection successful'));
 
-//console.log(app.get('env'));
+////console.log(app.get('env'));
 
 // node js sets env variable which is located at process.env (process core module)
-//console.log(process.env);
+////console.log(process.env);
 
 // start the code
 const port = process.env.PORT || 3000;
@@ -37,4 +37,4 @@ process.on('unhandledRejection', (err) => {
   });
 });
 
-//console.log(x);
+////console.log(x);

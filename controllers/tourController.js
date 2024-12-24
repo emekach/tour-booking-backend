@@ -29,7 +29,7 @@ exports.uploadTourImages = upload.fields([
 // upload.array('images', 5); // req.files for single is req.file
 
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
-  console.log(req.files);
+  //console.log(req.files);
   if (!req.files.imageCover || !req.files.images) return next();
 
   // 1) Cover image
@@ -56,7 +56,7 @@ exports.resizeTourImages = catchAsync(async (req, res, next) => {
     })
   );
 
-  console.log();
+  //console.log();
   next();
 });
 
@@ -68,7 +68,7 @@ exports.aliasTopTours = (req, res, next) => {
 };
 
 // exports.getAllTours = catchAsync(async (req, res, next) => {
-//   console.log(req.query);
+//   //console.log(req.query);
 //   // Build the query
 //   //1a. Filtering
 //   // const queryObj = { ...req.query };
@@ -78,9 +78,9 @@ exports.aliasTopTours = (req, res, next) => {
 //   //1b. Advanced filtering
 //   // let queryStr = JSON.stringify(queryObj);
 //   // queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
-//   //console.log(JSON.parse(queryStr));
+//   ////console.log(JSON.parse(queryStr));
 
-//   // console.log(req.query, queryObj);
+//   // //console.log(req.query, queryObj);
 
 //   // {difficulty:'easy', duration:{ $gte:5}}
 //   // {difficulty:'easy', duration:{ gte:'5'}}
@@ -91,7 +91,7 @@ exports.aliasTopTours = (req, res, next) => {
 
 //   // if (req.query.sort) {
 //   //   const sortBy = req.query.sort.split(',').join(' ');
-//   //   console.log(sortBy);
+//   //   //console.log(sortBy);
 //   //   query = query.sort(sortBy);
 
 //   //   //sort('price ratingsAverage')
@@ -150,7 +150,7 @@ exports.aliasTopTours = (req, res, next) => {
 // });
 
 // exports.getTour = catchAsync(async (req, res, next) => {
-//   console.log(req.params);
+//   //console.log(req.params);
 //   const tour = await Tour.findById(req.params.id).populate('reviews');
 
 //   if (!tour) {
@@ -316,7 +316,7 @@ exports.getToursWithin = catchAsync(async (req, res, next) => {
     );
   }
 
-  //console.log(distance, lat, lng, unit);
+  ////console.log(distance, lat, lng, unit);
 
   const tours = await Tour.find({
     startLocation: { $geoWithin: { $centerSphere: [[lng, lat], radius] } },
